@@ -131,11 +131,11 @@ public class EmployeeService {
 	public @ResponseBody ResponseEntity<Object> getCabById(@PathVariable("cabId") int cabId)
 	{
 		logger.info("Get cab by id.");
-		//Cab cab = customerDAO.findByCabId(cabId);
+		Cab cab = customerDAO.findByCabId(cabId);
 		//listOfCountries=createCountryList();
 		
-		return this.changeCabStausUnAvailable(cabId); // testing
-				//return new  ResponseEntity<Object>(cab,HttpStatus.OK);
+		//return this.changeCabStausUnAvailable(cabId); // testing
+				return new  ResponseEntity<Object>(cab,HttpStatus.OK);
 		
 		
 		
