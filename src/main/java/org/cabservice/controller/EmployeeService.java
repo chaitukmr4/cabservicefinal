@@ -226,7 +226,7 @@ public class EmployeeService {
 		
 	}
 	//
-	@RequestMapping(value = "/request/{requestId}", method = RequestMethod.POST,headers="Accept=application/json")
+	@RequestMapping(value = "/request/{requestId}", method = RequestMethod.GET,headers="Accept=application/json")
 	public @ResponseBody ResponseEntity<Object> requestId(@PathVariable("requestId") int reqId) {
 		logger.info("Start requestId.");
 		try{
@@ -237,7 +237,7 @@ public class EmployeeService {
 		}
 		
 	}
-	@RequestMapping(value = "/booking/{bookingId}", method = RequestMethod.POST,headers="Accept=application/json")
+	@RequestMapping(value = "/booking/{bookingId}", method = RequestMethod.GET,headers="Accept=application/json")
 	public @ResponseBody ResponseEntity<Object> bookingId(@PathVariable("bookingId") int bookingId) {
 		logger.info("Start requestId.");
 		try{
