@@ -65,19 +65,10 @@ public class EmployeeService {
 	{
 		logger.info("Get Employee by ID.");
 		
-		//Employee employee =customerDAO.findByEmployeeId(employeeId);
+		Employee employee =customerDAO.findByEmployeeId(employeeId);
 		
-		//return new ResponseEntity<Object>(employee,HttpStatus.OK);
-//		//return this.deleteEmployee(employeeId);
-//		/*Employee emp=new Employee();
-//		emp.setId(""+employeeId);
-//		emp.setFullName("chaitanya");
-//		emp.setDesignation("SE");
-//		emp.setEmail("Chaitukmr4@gmail.com");
-//		emp.setAddress("XXXXXXXXXXXX");
-//		emp.setPhone("1223456789");*/
-//		
-		return this.requestCab("India", "2017-11-07 22:14:27", String.valueOf(employeeId));
+		return new ResponseEntity<Object>(employee,HttpStatus.OK);
+	
 	}
 	
 	@RequestMapping(value = "/employee", method = RequestMethod.POST,headers="Accept=application/json")
