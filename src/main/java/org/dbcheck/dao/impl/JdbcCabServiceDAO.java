@@ -37,7 +37,7 @@ public class JdbcCabServiceDAO implements CustomerDAO
 		// TODO Auto-generated method stub
 		String sql = "INSERT INTO EMPLOYEES "
 		+"(FULL_NAME,DESIGNATION,JOINING_DATE,EMAIL,PHONE,ADDRESS) VALUES  "
-		+"(?,  ?, SYSDATE(), ?, ?, ?)";
+		+"(?,  ?, ?, ?, ?, ?)";
 		Connection conn = null;
 
 		try {
@@ -45,9 +45,10 @@ public class JdbcCabServiceDAO implements CustomerDAO
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, emp.getFullName());
 			ps.setString(2, emp.getDesignation());
-			ps.setString(3, emp.getEmail());
-			ps.setString(4, emp.getPhone());
-			ps.setString(5, emp.getAddress());
+			ps.setString(3, emp.getJoiningDate());
+			ps.setString(4, emp.getEmail());
+			ps.setString(5, emp.getPhone());
+			ps.setString(6, emp.getAddress());
 			ps.executeUpdate();
 			ps.close();
 
@@ -836,6 +837,8 @@ public class JdbcCabServiceDAO implements CustomerDAO
 							ps = conn.prepareStatement(sqlQuery);
 							ps.executeUpdate();
 						}
+					}else{
+						updateFlag=true;
 					}
 				}
 				ps = conn.prepareStatement(sql);
