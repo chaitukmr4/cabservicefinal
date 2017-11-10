@@ -194,7 +194,7 @@ public class EmployeeService {
 	}
 
 	
-	@RequestMapping(value = "/cabs/cabId ", method = RequestMethod.DELETE,headers="Accept=application/json")
+	@RequestMapping(value = "/cabs/{cabId} ", method = RequestMethod.DELETE,headers="Accept=application/json")
 	public @ResponseBody ResponseEntity<Object> deleteCab(@PathVariable("cabId") int cabId) {
 		logger.info("Start deleteCab.");
 		try{
