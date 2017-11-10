@@ -500,7 +500,7 @@ public class JdbcCabServiceDAO implements CustomerDAO
 							String reqId=this.insertRequest(details);
 							hm.put("requestId", reqId);
 							this.bookCab(details,reqId);
-							//this.processBooking(vehicleNum, details, reqId);//to process the request
+							
 							return hm;
 						}
 					}

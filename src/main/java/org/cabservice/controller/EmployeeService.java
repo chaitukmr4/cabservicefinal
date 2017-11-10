@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.cabservice.model.Cab;
 import org.cabservice.model.Employee;
+import org.cabservice.model.Request;
 import org.dbcheck.dao.CustomerDAO;
 import org.dbcheck.model.Customer;
 import org.springframework.context.ApplicationContext;
@@ -210,13 +211,13 @@ public class EmployeeService {
 	
 	
 	@RequestMapping(value = "/request", method = RequestMethod.POST,headers="Accept=application/json")
-	public @ResponseBody ResponseEntity<Object> requestCab(@PathVariable("sourceLocation") String sourceLocation,@PathVariable("dateTimeOfJourney") String dateTimeOfJourney,@PathVariable("employeeId") String employeeId) {
+	public @ResponseBody ResponseEntity<Object> requestCab(@RequestBody Request req) {
 		logger.info("Start requestCab.");
 		try{
 			Map<String,String> hm= new HashMap<String,String>();
-			hm.put("sourceLocation", sourceLocation);
-			hm.put("dateTimeOfJourney", dateTimeOfJourney);
-			hm.put("employeeId", employeeId);
+			hm.put("sourceLocation", req.getSourceLocation());
+			hm.put("dateTimeOfJourney", req.getDateTimeOfJourney());
+			hm.put("employeeId", req.getEmployeeId());
 			hm=customerDAO.requestCab(hm);
 			//cab=customerDAO.deleteCab(cabId);
 		return new ResponseEntity<Object>(hm,HttpStatus.OK);
