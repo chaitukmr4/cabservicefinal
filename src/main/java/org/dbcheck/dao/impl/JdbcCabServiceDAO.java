@@ -500,7 +500,7 @@ public class JdbcCabServiceDAO implements CustomerDAO
 							String reqId=this.insertRequest(details);
 							hm.put("requestId", reqId);
 							this.bookCab(details,reqId);
-							//to process the request
+							//this.processBooking(vehicleNum, details, reqId);//to process the request
 							return hm;
 						}
 					}
@@ -768,7 +768,7 @@ public class JdbcCabServiceDAO implements CustomerDAO
 	}
 	
 	public Map<String, String> bookingId(int bookingId) {
-		String sql = "SELECT * REQUEST_BOOKING WHERE REQ_ID = ?";
+		String sql = "SELECT * from BOOKINGS WHERE BOOKING_ID = ?";
 		Map<String,String> hm= new HashMap<String,String>();
 		Connection conn = null;
 
