@@ -730,7 +730,7 @@ public class JdbcCabServiceDAO implements CustomerDAO
 	}
 
 	public Map<String, String> requestId(int reqId) {
-		String sql = "SELECT * REQUEST_BOOKING WHERE REQ_ID = ?";
+		String sql = "SELECT * FROM REQUEST_BOOKING WHERE REQ_ID = ?";
 		Map<String,String> hm= new HashMap<String,String>();
 		Connection conn = null;
 
@@ -756,6 +756,7 @@ public class JdbcCabServiceDAO implements CustomerDAO
 			ps.close();
 			return hm;
 		} catch (SQLException e) {
+			System.out.println("Excedption"+e.getMessage());
 			throw new RuntimeException(e);
 		} finally {
 			if (conn != null) {
