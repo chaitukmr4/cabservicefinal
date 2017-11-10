@@ -92,8 +92,8 @@ public class EmployeeService {
 	}
 	
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = "/employee/employeeId ", method = RequestMethod.DELETE,headers="Accept=application/json")
-	public @ResponseBody ResponseEntity<Object> deleteEmployee(@PathVariable("id") int empId) {
+	@RequestMapping(value = "/employee/{employeeId} ", method = RequestMethod.DELETE,headers="Accept=application/json")
+	public @ResponseBody ResponseEntity<Object> deleteEmployee(@PathVariable("employeeId") int empId) {
 		logger.info("Start deleteEmployee.");
 		try{
 			Employee emp=null;
@@ -159,7 +159,7 @@ public class EmployeeService {
 		
 	}
 	
-	@RequestMapping(value = "/cabs/{cabId}/available ", method = RequestMethod.PUT,headers="Accept=application/json")
+	@RequestMapping(value = "/cabs/{cabId}/available ", method = RequestMethod.GET,headers="Accept=application/json")
 	public @ResponseBody ResponseEntity<Object> changeCabStausAvailable(@PathVariable("cabId") int cabId) {
 		logger.info("Start changeCabStausAvailable.");
 		//Employee emp = empData.get(empId);
@@ -177,7 +177,7 @@ public class EmployeeService {
 		
 	}
 	
-	@RequestMapping(value = "/cabs/{cabId}/unavialble ", method = RequestMethod.PUT,headers="Accept=application/json")
+	@RequestMapping(value = "/cabs/{cabId}/unavialble ", method = RequestMethod.GET,headers="Accept=application/json")
 	public @ResponseBody ResponseEntity<Object> changeCabStausUnAvailable(@PathVariable("cabId") int cabId) {
 		logger.info("Start changeCabStausUnAvailable.");
 		//Employee emp = empData.get(empId);
